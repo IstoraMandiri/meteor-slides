@@ -11,7 +11,6 @@ if Meteor.isServer
       text: 'Hello, this is a slide'
       _deckId: 'main'
       order: 0
-      createdAt: new Date()
     
     Decks.insert
       _id: 'main'

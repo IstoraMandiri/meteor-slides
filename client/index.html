@@ -23,11 +23,20 @@
 </template>
 
 <template name="slide_list">
-  <ul>  
+  <div class="slides">
     {{#each slides}}
-      <li {{#if isCurrent}}class='active'{{/if}}>{{text}}</li>
+      <div class='slide{{#if isCurrent}} active{{/if}}'>
+        <div class="text">
+          <span class="push btn btn-success btn-sm">></span>
+          {{#if isEditing}}
+            <input type="text" value='{{text}}'>
+          {{else}}
+            {{text}}
+          {{/if}}
+        </div>
+      </div>
     {{/each}}
-  </ul>
+  </div>
 </template>
 
 
