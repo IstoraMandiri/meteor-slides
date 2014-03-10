@@ -1,0 +1,38 @@
+<head>
+  <title>Slideshow</title>
+</head>
+
+<body>
+  {{> layout}}
+</body>
+
+<template name="layout">
+  {{yield}}
+</template>
+
+<template name="dashboard">
+  <h2>Admin</h2>
+  {{> controls}}
+  {{> slide_list}}
+</template>
+
+<template name='controls'>
+  <div class="back">Back</div>
+  <div class="forward">Forward</div>
+  <div class="new">+ New</div>
+</template>
+
+<template name="slide_list">
+  <ul>  
+    {{#each slides}}
+      <li {{#if isCurrent}}class='active'{{/if}}>{{text}}</li>
+    {{/each}}
+  </ul>
+</template>
+
+
+<template name="slide">
+  <div id="slide">
+    {{text}}
+  </div>
+</template>
