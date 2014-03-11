@@ -44,6 +44,7 @@ if Meteor.isClient
     'mouseout .slide' : -> Session.set 'editingSlide', null
 
     'keyup input': (event) -> 
+      event.stopPropagation()
       Slides.update {_id:@_id},
         $set: {text: event.target.value}
 
@@ -65,7 +66,7 @@ if Meteor.isClient
       path: '/dashboard'
       template: 'dashboard'
       after: ->
-        $('body').on 'keydown', (e) ->
+        $('body').on 'keyup', (e) ->
           if e.keyCode is 39 # forward
             moveToSlide 1
           else if e.keyCode is 37 # back

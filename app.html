@@ -8,19 +8,26 @@
 </template>
 
 <template name="dashboard">
-  <h2>Admin</h2>
-  {{> slide_list}}
+  <div class="container">
+    <h2>Admin</h2>
+    {{> slide_list}}
+  </div>
 </template>
 
 <template name="slide_list">
-  <div class="new btn btn-primary">+ New</div>
+  <div class="new btn btn-primary pull-right">+ New</div>
   <div class="slides">
     {{#each slides}}
       <div class='slide{{#if isCurrent}} active{{/if}}'>
         <div class="text">
-          <span class="push btn btn-success btn-sm">></span>
+          
           {{#if isEditing}}
-            <input type="text" name="text" value='{{text}}'>
+            <div class="input-group">
+              <span class="input-group-btn">
+                <button class="push btn btn-default" type="button">Go!</button>
+              </span>
+              <input type="text" name="text" value='{{text}}' class="form-control">
+            </div>
           {{else}}
             {{text}}
           {{/if}}
