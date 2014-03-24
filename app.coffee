@@ -18,7 +18,7 @@ if Meteor.isServer
 
 if Meteor.isClient
 
-  currentDeck = -> Decks.findOne({_id:'main'})
+  currentDeck = -> Decks.findOne _id:'main'
   currentSlide = -> Slides.findOne currentDeck()?.currentSlide
   lastSlide = -> Slides.findOne({},{sort:{order:-1}})
   makeSlideLive = (_id) -> 
